@@ -23,3 +23,9 @@ result[4]="$Comput4"
 
 echo "Dictionary :  ${result[@]}"
 
+echo "Array : "
+for i in ${!result[@]}
+do
+        arr[i]=${result[$i]}
+        echo -n "${arr[i]} "
+done
