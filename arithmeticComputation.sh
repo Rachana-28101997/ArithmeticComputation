@@ -31,6 +31,30 @@ do
 done
 
 printf "\n"
+echo "Results in Descending Order "
+n=${#result[@]}
+
+for (( i=1;i<=n-1;i++ ))
+do
+        for (( j=i;j<=n-i;j++ ))
+        do
+        if [[ ${arr[$((j+1))]%%.*} -gt ${arr[j]%%.*} ]]
+        then
+                temp=${arr[j+1]}
+                arr[$((j+1))]=${arr[j]}
+                arr[j]=$temp
+        fi
+        done
+done
+
+for ((i=1;i<=n;i++))
+do
+        echo -n "${arr[$i]} "
+done
+
+
+
+printf "\n"
 echo "Ascending order"
 n=${#result[@]}
 for (( i=1;i<=n-1;i++ ))
